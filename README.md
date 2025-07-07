@@ -46,7 +46,7 @@ Este proyecto es una implementación práctica del tutorial:
 
 Repositorio o Artículo de Referencia [Youtube](https://www.youtube.com/watch?v=9GVqKuTVANE&t=1946s)
 
-👨‍💻 About Me / Sobre el Autor
+👨‍💻 About Me
 ¡Hola! 👋 Soy Jessica, apasionado por el mundo de los datos, la inteligencia empresarial y la arquitectura de Data Warehouses.
 
 🔹 Mi Motivación para Este Proyecto
