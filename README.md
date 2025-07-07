@@ -1,11 +1,9 @@
 # sql-data-warehouse-proyecto
-Desarrollo de un Data Warehouse moderno usando SQL para consolidar datos de ventas, permitiendo la elaboración de informe analíticos.
-
 📌 Objetivo
 Desarrollar un Data Warehouse moderno utilizando SQL para consolidar datos de ventas provenientes de múltiples fuentes, permitiendo la generación de informes analíticos eficientes.
 
 🚀 Especificaciones Técnicas
-🔹 Fuentes de Datos
+Fuentes de Datos
 Se importarán datos desde 2 fuentes principales:
 
 ERP (Sistema de Planificación de Recursos Empresariales)
@@ -63,6 +61,5 @@ Este proyecto nace de la necesidad de consolidar datos dispersos en sistemas leg
 🔹 Conecta Conmigo
 Si tienes dudas, sugerencias o quieres colaborar, ¡no dudes en contactarme!
 
-📫 Email: [tu@email.com]
 
-💼 LinkedIn: [www.linkedin.com/in/jessicaadmin]
+💼 [LinkedIn](www.linkedin.com/in/jessicaadmin)
