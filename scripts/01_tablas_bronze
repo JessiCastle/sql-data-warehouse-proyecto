@@ -26,7 +26,7 @@ CREATE TABLE bronze.crm_prd_info (
     prd_id INT,
     prd_key NVARCHAR(50) NOT NULL,
     prd_nm NVARCHAR(50) NOT NULL, -- Nombre del producto
-    prd_cost INT NOT NULL, -- Costo 
+    prd_cost INT NULL, -- Costo 
     prd_line NVARCHAR(50) NULL, -- Línea o categoría del producto
     prd_start_dt DATETIME  NULL, -- Fecha de inicio
     prd_end_dt DATETIME NULL -- Fecha de finalización 
