@@ -1,0 +1,79 @@
+/*
+=============================================================
+Crear Tablas para cargar los archivos CSV en el Esquema bronze.
+=============================================================
+
+*/
+USE DataWarehouse
+
+IF OBJECT_ID('bronze.crm_cust_info', 'U') IS NOT NULL
+	DROP TABLE bronze.crm_cust_info;
+CREATE TABLE bronze.crm_cust_info (
+    cst_id INT,
+    cst_key NVARCHAR(50) NOT NULL,
+    cst_firstname NVARCHAR(50) NOT NULL, -- Nombre
+    cst_lastname NVARCHAR(50) NOT NULL, -- Apellido
+    cst_marital_status CHAR(2) NULL, -- Estado civil ('S', 'M')
+    cst_gndr CHAR(2) NULL, -- Género ('M', 'F')
+    cst_create_date DATETIME
+);
+
+IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL
+    DROP TABLE bronze.crm_prd_info;
+;
+
+CREATE TABLE bronze.crm_prd_info (
+    prd_id INT,
+    prd_key NVARCHAR(50) NOT NULL,
+    prd_nm NVARCHAR(50) NOT NULL, -- Nombre del producto
+    prd_cost INT NOT NULL, -- Costo 
+    prd_line NVARCHAR(50) NULL, -- Línea o categoría del producto
+    prd_start_dt DATETIME  NULL, -- Fecha de inicio
+    prd_end_dt DATETIME NULL -- Fecha de finalización 
+);
+
+IF OBJECT_ID('bronze.crm_sales_details', 'U') IS NOT NULL
+    DROP TABLE bronze.crm_sales_info;
+;
+
+CREATE TABLE bronze.crm_sales_details (
+    sls_ord_num NVARCHAR(50),
+    sls_prd_key NVARCHAR(50) NOT NULL, -- Clave del producto (relacionada a crm_prd_info)
+    sls_cust_id INT NOT NULL, -- ID del cliente (relacionado a crm_cust_info)
+    sls_order_dt DATETIME NOT NULL, -- Fecha del pedido
+    sls_ship_dt DATETIME NULL, -- Fecha de envío
+    sls_due_dt DATETIME NULL, -- Fecha de vencimiento de entrega
+    sls_sales INT NOT NULL, -- Total de la venta
+    sls_quantity INT NOT NULL,  -- Cantidad vendida
+    sls_price INT NOT NULL -- Precio unitario
+);
+
+IF OBJECT_ID('bronze.erp_cust_az12', 'U') IS NOT NULL
+    DROP TABLE bronze.erp_cust_az12;
+;
+
+CREATE TABLE bronze.erp_cust_az12 (
+    cid VARCHAR(50),
+    bdate DATETIME NOT NULL, -- Fecha de nacimiento
+    gen VARCHAR (10) NULL,
+);
+
+IF OBJECT_ID('bronze.erp_loc_a101', 'U') IS NOT NULL
+    DROP TABLE bronze.erp_loc_a101;
+;
+
+CREATE TABLE bronze.erp_loc_a101 (
+    cid VARCHAR(50),--Id localidad
+    cntry VARCHAR(50)-- Pais
+);
+
+IF OBJECT_ID('bronze.erp_px_cat_g1v2', 'U') IS NOT NULL
+    DROP TABLE bronze.erp_px_cat_g1v2;
+;
+
+CREATE TABLE bronze.erp_px_cat_g1v2 (
+    id  VARCHAR(10), 
+    cat VARCHAR(50) NOT NULL, -- Categoría principal
+    subcat VARCHAR(50) NOT NULL, -- Subcategoría
+    maintenance VARCHAR(5)NOT NULL -- ¿Requiere mantenimiento?
+);
