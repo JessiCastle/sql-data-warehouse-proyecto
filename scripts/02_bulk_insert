@@ -1,9 +1,15 @@
-Insertar los datos del CSV a las tablas del esquema Bronze
+/*
+=============================================================
+Insertar los datos del CSV a las tablas del esquema Bronze.
+Crear store procedure
 =============================================================
 
 */
 
 USE DataWarehouse
+
+CREATE OR ALTER PROCEDURE bronze.load_bronze As
+BEGIN
 
 TRUNCATE TABLE bronze.crm_cust_info;
 
@@ -15,8 +21,8 @@ WITH(
 	TABLOCK
 );
 
-SELECT * FROM bronze.crm_cust_info
-=============================================
+SELECT * FROM bronze.crm_cust_info;
+/*=============================================*/
 
 TRUNCATE TABLE bronze.crm_prd_info;
 
@@ -29,7 +35,7 @@ WITH(
 );
 
 SELECT * FROM bronze.crm_prd_info
-===========================================
+/*=============================================*/
 TRUNCATE TABLE bronze.crm_sales_details;
 
 BULK INSERT bronze.crm_sales_details
@@ -40,8 +46,8 @@ WITH(
 	TABLOCK
 );
 
-SELECT * FROM bronze.crm_sales_details
-===========================================
+SELECT * FROM bronze.crm_sales_details;
+/*=============================================*/
 
 TRUNCATE TABLE bronze.erp_cust_az12;
 
@@ -53,9 +59,9 @@ WITH(
 	TABLOCK
 );
 
-SELECT * FROM bronze.erp_cust_az12
+SELECT * FROM bronze.erp_cust_az12;
 
-===========================================
+/*=============================================*/
 
 TRUNCATE TABLE bronze.erp_loc_a101;
 
@@ -67,8 +73,8 @@ WITH(
 	TABLOCK
 );
 
-SELECT * FROM bronze.erp_loc_a101
-===========================================
+SELECT * FROM bronze.erp_loc_a101;
+/*=============================================*/
 TRUNCATE TABLE bronze.erp_px_cat_g1v2;
 
 BULK INSERT bronze.erp_px_cat_g1v2
@@ -80,3 +86,5 @@ WITH(
 );
 
 SELECT * FROM bronze.erp_px_cat_g1v2;
+/*=============================================*/
+END
