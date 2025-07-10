@@ -6,7 +6,8 @@ Crear store procedure
 
 */
 
-USE DataWarehouse
+USE DataWarehouse;
+GO
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze As
 BEGIN
