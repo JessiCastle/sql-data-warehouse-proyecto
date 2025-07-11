@@ -1,9 +1,18 @@
 /*
-=============================================================
+===========================================================================================
+Store Procedure:
 Insertar los datos del CSV a las tablas del esquema Bronze.
-Crear store procedure
-=============================================================
+Realiza la siguiente acción:
+-Borra tablas del esquema bronze antes de iniciar la carga,
+-Usa la funcion Bulk Insert para cargar los datos desde los archicos externo (CSV) a las
+tablas del esquema bronze.
 
+Parámetros:
+No acepta parámetros.-
+
+Uso:
+EXEC bronze.load_bronze
+===========================================================================================
 */
 
 USE DataWarehouse;
